@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Brain, Globe2 } from "lucide-react";
+import { Brain, Globe2, Sparkles, Code, Cpu } from "lucide-react";
 
 export default function HeroSection() {
   const controls = useAnimation();
@@ -34,6 +34,14 @@ export default function HeroSection() {
     },
   };
 
+  const floatingIcons = [
+    { Icon: Brain, color: "text-cyan-400", delay: 0 },
+    { Icon: Globe2, color: "text-purple-400", delay: 0.2 },
+    { Icon: Sparkles, color: "text-pink-400", delay: 0.4 },
+    { Icon: Code, color: "text-yellow-400", delay: 0.6 },
+    { Icon: Cpu, color: "text-green-400", delay: 0.8 },
+  ];
+
   return (
     <section ref={ref} id="home" className="min-h-screen pt-16 flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0">
@@ -48,58 +56,62 @@ export default function HeroSection() {
         className="container mx-auto px-4 relative z-10"
       >
         <div className="flex flex-col items-center text-center">
-          <motion.div
-            className="relative"
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <Globe2 className="w-32 h-32 text-cyan-400" />
+          {/* Floating Icons */}
+          {/* <div className="relative w-48 h-48 mb-8">
+            {floatingIcons.map(({ Icon, color, delay }, index) => (
+              <motion.div
+                key={index}
+                className={`absolute ${color}`}
+                style={{
+                  top: `${Math.sin(index * (2 * Math.PI / 5)) * 60 + 50}%`,
+                  left: `${Math.cos(index * (2 * Math.PI / 5)) * 60 + 50}%`,
+                }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0, 1, 0.8],
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  delay,
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              >
+                <Icon className="w-12 h-12" />
+              </motion.div>
+            ))}
             <motion.div
+              className="absolute inset-0 rounded-full border-2 border-cyan-400/30"
               animate={{
                 rotate: 360,
-                scale: [1, 1.2, 1],
+                scale: [1, 1.1, 1],
               }}
               transition={{
                 duration: 20,
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="absolute inset-0 border-2 border-purple-500/30 rounded-full"
             />
-            <motion.div
-              animate={{
-                rotate: -360,
-                scale: [1.2, 1, 1.2],
-              }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute inset-[-10px] border-2 border-cyan-400/20 rounded-full"
-            />
-          </motion.div>
+          </div> */}
 
           <motion.div
             variants={itemVariants}
-            className="mt-8 relative"
+            className="relative"
           >
-            <h1 className="text-4xl md:text-6xl font-bold gradient-text">
-              Redefining Education with
+            <h1 className="text-7xl md:text-7xl font-bold gradient-text mb-6">
+              Future of Learning
               <br />
-              AI, Blockchain & Metaverse
+              <span className="text-3xl md:text-5xl">Learn X Chain</span>
+              <br />
+             {/* <span className="text-3xl"> AI • Blockchain • Metaverse</span> */}
             </h1>
             <motion.div
               className="absolute -inset-4 -z-10 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-xl"
               animate={{
                 opacity: [0.5, 0.8, 0.5],
+                scale: [1, 1.1, 1],
               }}
               transition={{
                 duration: 3,
@@ -113,28 +125,96 @@ export default function HeroSection() {
             variants={itemVariants}
             className="mt-6 text-xl text-white/80 max-w-2xl"
           >
-            Step into the future of learning where AI tutors, blockchain security,
-            and immersive metaverse experiences come together to create a
-            revolutionary educational platform.
+            Experience the next generation of education where AI tutors, blockchain security,
+            and immersive metaverse experiences converge to create a revolutionary learning platform.
           </motion.p>
 
-          <motion.button
+          <motion.div
             variants={itemVariants}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-8 px-8 py-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full text-lg font-semibold relative overflow-hidden group"
+            className="mt-12 flex flex-wrap gap-4 justify-center"
           >
-            <span className="relative z-10">Explore the Future of Learning</span>
-            <motion.div
-              className="absolute inset-0 bg-white/20"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.5 }}
-            />
-          </motion.button>
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full text-lg font-semibold relative overflow-hidden group"
+            >
+              <span className="relative z-10">Start Learning Now</span>
+              <motion.div
+                className="absolute inset-0 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.5 }}
+              />
+            </motion.button>
+
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(255, 0, 255, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-full text-lg font-semibold relative overflow-hidden group"
+            >
+              <span className="relative z-10">Watch Demo</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          </motion.div>
+
+          {/* Floating Stats */}
+          <motion.div
+            variants={containerVariants}
+            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {[
+              { value: "50M+", label: "AI Interactions" },
+              { value: "100K+", label: "Verified Credentials" },
+              { value: "25K+", label: "Virtual Classes" },
+            ].map(({ value, label }, index) => (
+              <motion.div
+                key={label}
+                variants={itemVariants}
+                className="glass-card p-6 rounded-xl relative group"
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="text-3xl font-bold gradient-text mb-2"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  {value}
+                </motion.div>
+                <div className="text-white/70">{label}</div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{
+                    background: [
+                      "linear-gradient(45deg, rgba(0,255,255,0.1), rgba(255,0,255,0.1))",
+                      "linear-gradient(45deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1))",
+                    ],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </motion.div>
 

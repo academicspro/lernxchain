@@ -8,10 +8,8 @@ import ARVRDemo from "@/components/ar-vr-demo";
 import BlockchainFeatures from "@/components/blockchain-features";
 import AIFeatures from "@/components/ai-features";
 import TeamSection from "@/components/team-section";
-import AboutUs from "@/components/about-us";
-import ContactUs from "@/components/contact-us";
-import Footer from "@/components/footer";
 import ParticleBackground from "@/components/particle-background";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -32,8 +30,6 @@ export default function Home() {
         <BlockchainFeatures />
         <AIFeatures />
         <TeamSection />
-        <AboutUs />
-        <ContactUs />
         <Footer />
       </div>
     </div>
