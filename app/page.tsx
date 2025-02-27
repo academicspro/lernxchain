@@ -8,8 +8,14 @@ import ARVRDemo from "@/components/ar-vr-demo";
 import BlockchainFeatures from "@/components/blockchain-features";
 import AIFeatures from "@/components/ai-features";
 import TeamSection from "@/components/team-section";
+import ComparisonSection from "@/components/comparison-section";
+import ReviewSection from "@/components/review-section";
+import PartnersSection from "@/components/partners-section";
+import ImmersiveClassroom from "@/components/immersive-classroom";
+import BookDemo from "@/components/book-demo";
 import ParticleBackground from "@/components/particle-background";
 import Footer from "@/components/footer";
+import Chatbot from "@/components/chatbot";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -27,10 +33,16 @@ export default function Home() {
         <HeroSection />
         <KeyFeatures />
         <ARVRDemo />
+        <ImmersiveClassroom />
         <BlockchainFeatures />
         <AIFeatures />
+        <ComparisonSection />
+        <PartnersSection />
+        <ReviewSection />
+        <BookDemo />
         <TeamSection />
         <Footer />
+        <Chatbot />
       </div>
     </div>
   );
