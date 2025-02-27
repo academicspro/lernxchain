@@ -12,6 +12,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Features", href: "/#features" },
     { label: "Team", href: "/#team" },
+    { label: "Timeline", href: "/timeline" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
@@ -30,8 +31,8 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
             >
               <Brain className="w-8 h-8 text-cyan-400" />
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                LearnX Chain
+              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                LearnXChain
               </span>
             </motion.div>
           </Link>

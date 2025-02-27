@@ -5,6 +5,7 @@ import { Mail, MessageSquare, Send, Phone, MapPin, Globe } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ParticleBackground from "@/components/particle-background";
+import GlobeVisualization from "@/components/globe-visualization";
 
 const contactMethods = [
   {
@@ -76,11 +77,12 @@ export default function ContactPage() {
               ))}
             </div>
 
-            {/* Contact Form */}
-            <div className="max-w-3xl mx-auto">
+            {/* Contact Form and Globe */}
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Contact Form */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
                 className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10"
               >
@@ -136,46 +138,16 @@ export default function ContactPage() {
                   </motion.button>
                 </form>
               </motion.div>
-            </div>
-          </div>
-        </section>
 
-        {/* Global Presence */}
-        <section className="py-20 relative">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl font-bold gradient-text mb-4">
-                Global Presence
-              </h2>
-              <p className="text-white/80">
-                Join our growing community of learners across the globe
-              </p>
-            </motion.div>
-            <div className="relative h-[400px] rounded-2xl glass-card overflow-hidden">
-              <div className="absolute inset-0 cyber-grid opacity-20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Globe className="w-32 h-32 text-cyan-400" />
-              </div>
+              {/* Globe Visualization */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20"
-                animate={{
-                  background: [
-                    "linear-gradient(45deg, rgba(0,255,255,0.2), rgba(255,0,255,0.2))",
-                    "linear-gradient(45deg, rgba(255,0,255,0.2), rgba(0,255,255,0.2))",
-                    "linear-gradient(45deg, rgba(0,255,255,0.2), rgba(255,0,255,0.2))",
-                  ],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8 }}
+                className="glass-card rounded-2xl overflow-hidden"
+              >
+                <GlobeVisualization />
+              </motion.div>
             </div>
           </div>
         </section>

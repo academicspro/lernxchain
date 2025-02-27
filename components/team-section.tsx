@@ -6,9 +6,9 @@ import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: "Dr. Sarah Chen",
-    role: "AI Research Lead",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
+    name: "Rajneesh Rana",
+    role: "Full Stack Developer",
+    image: "https://res.cloudinary.com/dkzm9q5xf/image/upload/v1740334428/coqafclkjlm5eycbm763.jpg",
     bio: "Leading AI innovation in education with 15+ years of experience in machine learning and cognitive computing.",
     social: {
       twitter: "#",
@@ -17,9 +17,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Alex Rodriguez",
-    role: "Blockchain Architect",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop",
+    name: "Minal Setia",
+    role: "Frontend Developer",
+    image: "https://res.cloudinary.com/dkzm9q5xf/image/upload/v1740391717/pbfcieweognqctyzb6xv.png",
     bio: "Blockchain expert with a focus on educational credentials and decentralized learning systems.",
     social: {
       twitter: "#",
@@ -28,9 +28,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Dr. Emily Watson",
-    role: "AR/VR Director",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1887&auto=format&fit=crop",
+    name: "Aryan Sharma",
+    role: "App Developer",
+    image: "https://res.cloudinary.com/dkzm9q5xf/image/upload/v1740334144/l6aaskqziarsugnwwrqf.jpg",
     bio: "Pioneer in immersive learning experiences with expertise in virtual and augmented reality technologies.",
     social: {
       twitter: "#",
@@ -39,9 +39,9 @@ const teamMembers = [
     },
   },
   {
-    name: "Michael Chang",
-    role: "Education Technology Lead",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1887&auto=format&fit=crop",
+    name: "Mihir Jain",
+    role: "Frontend Developer",
+    image: "https://res.cloudinary.com/dkzm9q5xf/image/upload/v1740334144/bgzfj7v5wmaqzibuzyfy.jpg",
     bio: "Bridging technology and pedagogy to create effective digital learning experiences.",
     social: {
       twitter: "#",

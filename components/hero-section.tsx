@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Brain, Globe2, Sparkles, Code, Cpu } from "lucide-react";
+import { Brain, Globe2, Sparkles, Code, Cpu, Zap, Shield, Book } from "lucide-react";
 
 export default function HeroSection() {
   const controls = useAnimation();
@@ -38,8 +38,11 @@ export default function HeroSection() {
     { Icon: Brain, color: "text-cyan-400", delay: 0 },
     { Icon: Globe2, color: "text-purple-400", delay: 0.2 },
     { Icon: Sparkles, color: "text-pink-400", delay: 0.4 },
-    { Icon: Code, color: "text-yellow-400", delay: 0.6 },
-    { Icon: Cpu, color: "text-green-400", delay: 0.8 },
+    { Icon: Shield, color: "text-yellow-400", delay: 0.6 },
+    { Icon: Book, color: "text-green-400", delay: 0.8 },
+    { Icon: Zap, color: "text-blue-400", delay: 1 },
+    { Icon: Code, color: "text-red-400", delay: 1.2 },
+    { Icon: Cpu, color: "text-indigo-400", delay: 1.4 },
   ];
 
   return (
@@ -56,56 +59,92 @@ export default function HeroSection() {
         className="container mx-auto px-4 relative z-10"
       >
         <div className="flex flex-col items-center text-center">
-          {/* Floating Icons */}
-          {/* <div className="relative w-48 h-48 mb-8">
-            {floatingIcons.map(({ Icon, color, delay }, index) => (
-              <motion.div
-                key={index}
-                className={`absolute ${color}`}
-                style={{
-                  top: `${Math.sin(index * (2 * Math.PI / 5)) * 60 + 50}%`,
-                  left: `${Math.cos(index * (2 * Math.PI / 5)) * 60 + 50}%`,
-                }}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0, 1, 0.8],
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  delay,
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              >
-                <Icon className="w-12 h-12" />
-              </motion.div>
-            ))}
+          {/* Enhanced Floating Icons with Orbital Animation */}
+          <div className="relative w-64 h-64 mb-8">
+            {/* Central Icon */}
             <motion.div
-              className="absolute inset-0 rounded-full border-2 border-cyan-400/30"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               animate={{
-                rotate: 360,
-                scale: [1, 1.1, 1],
+                scale: [1, 1.2, 1],
+                opacity: [0.8, 1, 0.8],
               }}
               transition={{
-                duration: 20,
+                duration: 3,
                 repeat: Infinity,
-                ease: "linear",
+                ease: "easeInOut",
               }}
-            />
-          </div> */}
+            >
+              {/* <Brain className="w-16 h-16 text-cyan-400" /> */}
+            </motion.div>
+
+            {/* Orbital Rings */}
+            {[1, 2, 3].map((ring, ringIndex) => (
+              <motion.div
+                key={ring}
+                className={`absolute top-1/2 left-1/2 w-${ring * 16} h-${ring * 16} rounded-full border border-cyan-400/30`}
+                style={{
+                  width: `${ring * 100}%`,
+                  height: `${ring * 100}%`,
+                  transform: 'translate(-50%, -50%)',
+                }}
+                animate={{
+                  rotate: 360,
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 20 - ringIndex * 3,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+            ))}
+
+            {/* Floating Icons */}
+            {/* {floatingIcons.map(({ Icon, color, delay }, index) => {
+              const angle = (index * Math.PI * 2) / floatingIcons.length;
+              const radius = 100; // Adjust this value to change the orbit size
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+
+              return (
+                <motion.div
+                  key={index}
+                  className={`absolute ${color}`}
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                  }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{
+                    scale: 1,
+                    opacity: [0.5, 1, 0.5],
+                    x: [x * 0.8, x, x * 1.2, x],
+                    y: [y * 0.8, y, y * 1.2, y],
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    delay,
+                    duration: 8,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                >
+                  <Icon className="w-8 h-8" />
+                </motion.div>
+              );
+            })} */}
+          </div>
 
           <motion.div
             variants={itemVariants}
             className="relative"
           >
-            <h1 className="text-7xl md:text-7xl font-bold gradient-text mb-6">
+            <h1 className="text-4xl md:text-7xl font-bold gradient-text mb-6">
               Future of Learning
               <br />
-              <span className="text-3xl md:text-5xl">Learn X Chain</span>
+              <span className="text-3xl md:text-5xl">Powered by</span>
               <br />
-             {/* <span className="text-3xl"> AI • Blockchain • Metaverse</span> */}
+              AI • Blockchain • Metaverse
             </h1>
             <motion.div
               className="absolute -inset-4 -z-10 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-xl"
@@ -168,7 +207,7 @@ export default function HeroSection() {
             </motion.button>
           </motion.div>
 
-          {/* Floating Stats */}
+          {/* Stats Section */}
           <motion.div
             variants={containerVariants}
             className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
