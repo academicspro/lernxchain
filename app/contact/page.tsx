@@ -6,27 +6,8 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ParticleBackground from "@/components/particle-background";
 import GlobeVisualization from "@/components/globe-visualization";
-
-const contactMethods = [
-  {
-    icon: Phone,
-    title: "Phone",
-    description: "+1 (555) 123-4567",
-    color: "cyan",
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    description: "support@learnxchain.com",
-    color: "purple",
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    description: "123 Innovation Drive, Tech City",
-    color: "pink",
-  },
-];
+import ContactMethods from "@/components/contact/contact-methods";
+import ContactForm from "@/components/contact/contact-form";
 
 export default function ContactPage() {
   return (
@@ -56,88 +37,12 @@ export default function ContactPage() {
         {/* Contact Methods */}
         <section className="py-12 relative">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {contactMethods.map((method, index) => (
-                <motion.div
-                  key={method.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="relative group"
-                >
-                  <div className="p-6 rounded-2xl glass-card relative z-10 text-center">
-                    <method.icon className={`w-12 h-12 text-${method.color}-400 mx-auto mb-4`} />
-                    <h3 className="text-xl font-semibold mb-2">{method.title}</h3>
-                    <p className="text-white/70">{method.description}</p>
-                  </div>
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-r from-${method.color}-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`}
-                  />
-                </motion.div>
-              ))}
-            </div>
+            <ContactMethods />
 
             {/* Contact Form and Globe */}
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-                className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10"
-              >
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-white/80 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 transition-colors"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-white/80 mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 transition-colors"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-white/80 mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 transition-colors"
-                      placeholder="How can we help?"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-white/80 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-cyan-400 transition-colors h-32"
-                      placeholder="Your message"
-                    />
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full py-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg font-semibold flex items-center justify-center gap-2"
-                  >
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </motion.button>
-                </form>
-              </motion.div>
+              <ContactForm />
 
               {/* Globe Visualization */}
               <motion.div
@@ -149,6 +54,96 @@ export default function ContactPage() {
                 <GlobeVisualization />
               </motion.div>
             </div>
+          </div>
+        </section>
+        
+        {/* FAQ Section */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-3xl font-bold gradient-text text-center mb-12"
+            >
+              Frequently Asked Questions
+            </motion.h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  question: "How quickly will I receive a response?",
+                  answer: "We typically respond to all inquiries within 2 business hours during our operating hours. For urgent matters, please use our 24/7 support line."
+                },
+                {
+                  question: "Can I schedule a demo of your platform?",
+                  answer: "Absolutely! You can book a personalized demo through our booking system or by contacting our sales team directly at sales@learnxchain.com."
+                },
+                {
+                  question: "Do you offer support in multiple languages?",
+                  answer: "Yes, our support team provides assistance in English, Spanish, French, German, Japanese, and Mandarin Chinese."
+                },
+                {
+                  question: "How can I report technical issues?",
+                  answer: "Technical issues can be reported through our support portal, via email to support@learnxchain.com, or through the in-app help center."
+                },
+                {
+                  question: "Are there partnership opportunities available?",
+                  answer: "We're always open to strategic partnerships. Please contact our partnership team at partners@learnxchain.com with your proposal."
+                },
+                {
+                  question: "How can I join your team?",
+                  answer: "Check out our Careers page for current openings. We're always looking for talented individuals to join our mission."
+                },
+              ].map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="glass-card p-6 rounded-xl"
+                >
+                  <h3 className="text-xl font-semibold mb-3">{faq.question}</h3>
+                  <p className="text-white/70">{faq.answer}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* CTA Section */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="glass-card p-12 rounded-2xl text-center max-w-4xl mx-auto relative overflow-hidden"
+            >
+              <div className="absolute inset-0 cyber-grid opacity-20" />
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold gradient-text mb-6">
+                  Ready to Transform Your Learning Experience?
+                </h2>
+                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+                  Join thousands of learners who have already revolutionized their education with LearnX Chain
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full text-lg font-semibold"
+                  >
+                    Get Started Now
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-white/10 rounded-full text-lg font-semibold"
+                  >
+                    Book a Demo
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>

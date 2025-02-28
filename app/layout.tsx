@@ -6,12 +6,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'LearnXChain',
-  description: 'LearnXChain is the future of learning powered by AI, blockchain, and the metaverse.',
-  // url: 'https://learnxchain.io',
-  // type: 'website',
-  // locale: 'en_US',
-  // site_name: 'LearnXChain',
-  keywords: ['learnxchain', 'learn', 'xchain', 'ai', 'blockchain', 'metaverse'],
+  description: 'LearnXChain is a platform to learn blockchain technology.',
 };
 
 export default function RootLayout({
