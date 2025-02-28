@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -75,8 +75,8 @@ export default function Footer() {
 
   return (
     <footer className="relative pt-20 pb-6 overflow-hidden">
-      <div className="absolute inset-0 cyber-grid opacity-5" />
-      
+      <div className="" />
+
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
@@ -119,10 +119,16 @@ export default function Footer() {
             <div key={section.title}>
               <h3 className="font-semibold mb-4">{section.title}</h3>
               <ul className="space-y-2">
+                <Link
+                  href={"/"}
+                  className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block cursor-pointer"
+                >
+                  Home
+                </Link>
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
-                      href={link.href} 
+                      href={link.href}
                       className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block cursor-pointer"
                     >
                       {link.name}
@@ -167,7 +173,7 @@ export default function Footer() {
           <div className="text-white/70 text-sm mb-4 md:mb-0">
             © 2024 LearnXChain. All rights reserved.
           </div>
-          
+
           {/* Social Links */}
           <div className="flex items-center gap-4">
             {socialLinks.map(({ icon: Icon, href, color }) => (

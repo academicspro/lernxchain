@@ -50,7 +50,7 @@ export default function PartnersSection() {
   return (
     <section ref={ref} className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 cyber-grid opacity-10" />
-      
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
