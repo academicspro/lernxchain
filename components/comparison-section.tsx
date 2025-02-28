@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Check, X, Zap, Shield, Brain, Globe, Users, Coins } from 'lucide-react';
+import React from 'react';
 
 const comparisonData = {
   features: [
@@ -82,9 +83,8 @@ export default function ComparisonSection() {
 
             {/* Features */}
             {comparisonData.features.map((feature, featureIndex) => (
-              <>
+              <React.Fragment key={`feature-${featureIndex}`}>
                 <motion.div
-                  key={feature.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: featureIndex * 0.1 }}
@@ -112,7 +112,7 @@ export default function ComparisonSection() {
                     )}
                   </motion.div>
                 ))}
-              </>
+              </React.Fragment>
             ))}
           </motion.div>
 

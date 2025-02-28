@@ -74,7 +74,7 @@ export default function HeroSection() {
                 ease: "easeInOut",
               }}
             >
-              {/* <Brain className="w-16 h-16 text-cyan-400" /> */}
+              <Brain className="w-16 h-16 text-cyan-400" />
             </motion.div>
 
             {/* Orbital Rings */}
@@ -100,7 +100,7 @@ export default function HeroSection() {
             ))}
 
             {/* Floating Icons */}
-            {/* {floatingIcons.map(({ Icon, color, delay }, index) => {
+            {floatingIcons.map(({ Icon, color, delay }, index) => {
               const angle = (index * Math.PI * 2) / floatingIcons.length;
               const radius = 100; // Adjust this value to change the orbit size
               const x = Math.cos(angle) * radius;
@@ -132,7 +132,7 @@ export default function HeroSection() {
                   <Icon className="w-8 h-8" />
                 </motion.div>
               );
-            })} */}
+            })}
           </div>
 
           <motion.div

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Brain, ArrowUp, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -20,20 +21,48 @@ export default function Footer() {
   const footerSections = [
     {
       title: "Platform",
-      links: ["Features", "Pricing", "Enterprise", "Security", "API", "Documentation"],
+      links: [
+        { name: "Features", href: "/#features" },
+        { name: "Pricing", href: "/pricing" },
+        { name: "Enterprise", href: "/pricing" },
+        { name: "Security", href: "/security" },
+        { name: "API", href: "/documentation" },
+        { name: "Documentation", href: "/documentation" },
+      ],
     },
     {
       title: "Company",
-      links: ["About Us", "Careers", "Blog", "Press", "Partners", "Contact"],
+      links: [
+        { name: "About Us", href: "/about" },
+        { name: "Careers", href: "/careers" },
+        { name: "Blog", href: "/blog" },
+        { name: "Press", href: "/press" },
+        { name: "Partners", href: "/partners" },
+        { name: "Contact", href: "/contact" },
+      ],
     },
     {
       title: "Resources",
-      links: ["Community", "Help Center", "Status", "Terms of Service", "Privacy Policy", "Cookie Settings"],
+      links: [
+        { name: "Community", href: "/community" },
+        { name: "Help Center", href: "/help-center" },
+        { name: "Status", href: "/status" },
+        { name: "Terms of Service", href: "/terms-of-service" },
+        { name: "Privacy Policy", href: "/privacy-policy" },
+        { name: "Cookie Settings", href: "#" },
+      ],
     },
     {
       title: "Solutions",
-      links: ["AI Learning", "Blockchain Credentials", "Virtual Classrooms", "AR/VR Education", "Enterprise Solutions", "Integration"],
-    },
+      links: [
+        { name: "AI Learning", href: "/#features" },
+        { name: "Blockchain Credentials", href: "/#features" },
+        { name: "Virtual Classrooms", href: "/#features" },
+        { name: "AR/VR Education", href: "/#features" },
+        { name: "Enterprise Solutions", href: "/pricing" },
+        { name: "Integration", href: "/documentation" },
+      ],
+    }
   ];
 
   const socialLinks = [
@@ -53,12 +82,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <Brain className="w-8 h-8 text-cyan-400" />
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                LearnXChain
-              </span>
-            </div>
+            <Link href="/" className="inline-block">
+              <div className="flex items-center gap-2 mb-6 cursor-pointer">
+                <Brain className="w-8 h-8 text-cyan-400" />
+                <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                  LearnXChain
+                </span>
+              </div>
+            </Link>
             <p className="text-white/70 mb-6">
               Revolutionizing education through AI, blockchain, and metaverse technology.
               Join us in shaping the future of learning.
@@ -66,32 +97,36 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-white/70">
                 <Mail className="w-5 h-5 text-cyan-400" />
-                contact@learnxchain.io
+                <a href="mailto:contact@learnxchain.io" className="hover:text-white transition-colors cursor-pointer">
+                  contact@learnxchain.io
+                </a>
               </div>
               <div className="flex items-center gap-3 text-white/70">
                 <Phone className="w-5 h-5 text-purple-400" />
-                +1 (555) 123-4567
+                <a href="tel:+15551234567" className="hover:text-white transition-colors cursor-pointer">
+                  +1 (555) 123-4567
+                </a>
               </div>
               <div className="flex items-center gap-3 text-white/70">
                 <MapPin className="w-5 h-5 text-pink-400" />
-                123 Innovation Drive, Tech City
+                <span>123 Innovation Drive, Tech City</span>
               </div>
             </div>
           </div>
 
           {/* Links Sections */}
-          {footerSections.map((section) => (
+          {footerSections.map((section, index) => (
             <div key={section.title}>
               <h3 className="font-semibold mb-4">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block"
+                  <li key={link.name}>
+                    <Link
+                      href={link.href} 
+                      className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block cursor-pointer"
                     >
-                      {link}
-                    </a>
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -114,12 +149,12 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-400"
+                className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-400 cursor-text"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg font-semibold"
+                className="px-6 py-2 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg font-semibold cursor-pointer"
               >
                 Subscribe
               </motion.button>
@@ -130,7 +165,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-white/70 text-sm mb-4 md:mb-0">
-            © 2024 LearnX Chain. All rights reserved.
+            © 2024 LearnXChain. All rights reserved.
           </div>
           
           {/* Social Links */}
@@ -140,7 +175,7 @@ export default function Footer() {
                 key={color}
                 href={href}
                 whileHover={{ scale: 1.2, y: -2 }}
-                className={`text-white/70 ${color} transition-colors`}
+                className={`text-white/70 ${color} transition-colors cursor-pointer`}
               >
                 <Icon className="w-5 h-5" />
               </motion.a>
@@ -151,7 +186,7 @@ export default function Footer() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="mt-4 md:mt-0 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+            className="mt-4 md:mt-0 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
           >
             <ArrowUp className="w-5 h-5" />
           </motion.button>
