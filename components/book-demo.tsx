@@ -39,7 +39,7 @@ export default function BookDemo() {
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 cyber-grid opacity-10" />
-      
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,9 +66,8 @@ export default function BookDemo() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className={`p-6 rounded-xl glass-card cursor-pointer relative ${
-                  selectedType === type.title ? 'border-cyan-400' : 'border-white/10'
-                }`}
+                className={`p-6 rounded-xl glass-card cursor-pointer relative ${selectedType === type.title ? 'border-cyan-400' : 'border-white/10'
+                  }`}
                 onClick={() => setSelectedType(type.title)}
               >
                 <div className="flex items-center gap-4">
@@ -95,7 +94,7 @@ export default function BookDemo() {
             className="glass-card p-8 rounded-xl space-y-6"
           >
             <h3 className="text-2xl font-bold mb-6">Schedule Your Demo</h3>
-            
+
             {/* Date Selection */}
             <div>
               <label className="block text-sm font-medium text-white/80 mb-2">
@@ -123,11 +122,10 @@ export default function BookDemo() {
                     key={time}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`p-3 rounded-lg flex items-center justify-center gap-2 ${
-                      selectedTime === time
-                        ? 'bg-gradient-to-r from-cyan-400 to-purple-500'
-                        : 'bg-white/5 hover:bg-white/10'
-                    }`}
+                    className={`p-3 rounded-lg flex items-center justify-center gap-2 ${selectedTime === time
+                      ? 'bg-gradient-to-r from-cyan-400 to-purple-500'
+                      : 'bg-white/5 hover:bg-white/10'
+                      }`}
                     onClick={() => setSelectedTime(time)}
                   >
                     <Clock className="w-4 h-4" />

@@ -34,7 +34,7 @@ export default function BlockchainFeatures() {
   return (
     <section ref={ref} className="py-20 relative">
       <div className="absolute inset-0 cyber-grid opacity-10" />
-      
+
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
