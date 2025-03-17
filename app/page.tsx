@@ -40,7 +40,7 @@ export default function Home() {
         <PartnersSection />
         <ReviewSection />
         <BookDemo />
-        <TeamSection />
+{/*         <TeamSection /> */}
         <Footer />
         <Chatbot />
       </div>
